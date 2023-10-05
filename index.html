@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>View Counter</title>
+</head>
+<body>
+    <div class="container">
+        <h1>YOUR TOTAL VISITS</h1>
+        <div class="counter">0</div>
+        <H3>REQUIRED:-75
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<H3><>ABOUT THE GIVEAWAY<></H3>
+<H5>THIS THE LATEST GIVEAWAY OF RAYXSTUDIOZ IN WHICH EVERYONE CAN PARTICIPATE SEE THE RULES TO PARTICIPATE
+    <H6>RULES ARE  DONT BE TRY TO REFRESH THE WEBSITE TO GET MORE VIEWS EASILY WE HAVE SET THE COOLDOWN TIMER FOR EVERY 30 MINS YOU CANT PARTICIPATE EASILY 
+        <H2><>HOW TO PARTICIPATE?<></H2>
+        JUST YOU ALL NEED IS 75 VIEWS IN OUR WEBSITE IN TOTAL EACH VIEW CALCULATED AFTER EVERY 30 MINS NO EXTRA VIEWS AFTER REFREHING THE SITE ALSO SO GOOD LUCK MAYBE YOU WON THE GIVEAWAY "GOLDEN TICKET"
+        <H3><>WHAT IS THE REWARDS OF THIS GIVEAWAY<></H3>
+        THE REWARD IS LEGENDARY  "GOLDEN TICKET"WITH THIS TICKET YOU HAVE A BIG CHANCE TO WIN <MARK>500$</MARK>JACKPOT OR <MARK>3000</MARK> ANY SOCIAL MEDIA APP FOLLOWERS
+        <H1>GOODLUCK EVERYONE THE WINNER'S WILL BE RELEASED ON 15 OCTOBER 2023 THERE ARE TOTAL 5 WINNERS
+<STYLE>body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+h1 {
+    margin: 0;
+    color: #333;
+}
+
+.counter {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #ff0000;
+}
+</STYLE>
+<SCRIPT>// Check if there's a saved view count in localStorage
+let viewCount = parseInt(localStorage.getItem("viewCount")) || 0;
+
+// Check if there's a saved last visit time in localStorage
+let lastVisit = parseInt(localStorage.getItem("lastVisit")) || 0;
+
+// Function to update the view count
+function updateViewCount() {
+    viewCount++;
+    localStorage.setItem("viewCount", viewCount);
+
+    // Update the counter element
+    document.querySelector(".counter").textContent = viewCount;
+
+    // Check if the user has reached 75 views
+    if (viewCount >= 75) {
+        // Show a SweetAlert notification
+        Swal.fire({
+            title: "Congratulations!",
+            text: "You are now joined the giveaway stay tuned!",
+            icon: "success",
+        });
+    }
+}
+
+// Check if the user's last visit was more than 30 minutes ago or if lastVisit is 0 (first visit)
+const currentTime = new Date().getTime();
+const timeElapsed = currentTime - lastVisit;
+const thirtyMinutes = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+if (timeElapsed >= thirtyMinutes || lastVisit === 0) {
+    updateViewCount();
+    localStorage.setItem("lastVisit", currentTime);
+}
+
+// Update the view count on the page
+document.querySelector(".counter").textContent = viewCount;
+</SCRIPT>
